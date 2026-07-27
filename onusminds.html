@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Onusminds — IT Consulting &amp; Digital Marketing</title>
+<meta name="description" content="Onusminds pairs IT consulting with digital marketing — the systems behind your business and the story in front of it, built to move at the same pace.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #14213D;
+    --paper: #FAF7EF;
+    --paper-dim: #F1ECDE;
+    --brass: #B98B1E;
+    --slate: #5B6472;
+    --teal: #2E6E62;
+    --line: rgba(20,33,61,0.14);
+    --max: 1120px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .mono{
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+  a{ color: inherit; }
+  .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 32px; }
+  section{ padding: 96px 0; }
+  @media (max-width: 640px){
+    section{ padding: 64px 0; }
+    .wrap{ padding: 0 20px; }
+  }
+
+  /* Header */
+  header{
+    position: sticky; top:0; z-index: 50;
+    background: rgba(250,247,239,0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content: space-between;
+    padding: 18px 32px;
+    max-width: var(--max); margin: 0 auto;
+  }
+  .logo{
+    font-family:'Fraunces', serif; font-weight:700; font-size:20px;
+    display:flex; align-items:baseline; gap:8px;
+  }
+  .logo .dot{ color: var(--brass); }
+  .nav-links{ display:flex; gap:32px; list-style:none; margin:0; padding:0; }
+  .nav-links a{
+    text-decoration:none; font-size:14px; font-weight:500; color: var(--ink);
+    position: relative;
+  }
+  .nav-links a:after{
+    content:''; position:absolute; left:0; bottom:-4px; width:0; height:1px;
+    background: var(--brass); transition: width .25s ease;
+  }
+  .nav-links a:hover:after{ width:100%; }
+  .nav-cta{
+    border:1px solid var(--ink); padding:9px 18px; border-radius:2px;
+    font-size:13px; font-weight:600; text-decoration:none; white-space:nowrap;
+  }
+  .nav-cta:hover{ background: var(--ink); color: var(--paper); }
+  .menu-toggle{ display:none; background:none; border:none; cursor:pointer; }
+  @media (max-width: 860px){
+    .nav-links{ display:none; }
+    .menu-toggle{ display:block; }
+  }
+
+  /* Hero */
+  .hero{ padding: 88px 0 80px; }
+  .hero-grid{
+    display:grid; grid-template-columns: 1fr 1px 1fr; gap: 48px; align-items: end;
+  }
+  .hero-divider{ background: var(--line); align-self: stretch; }
+  .eyebrow{ color: var(--brass); margin-bottom: 18px; }
+  .hero h1{
+    font-size: clamp(36px, 5vw, 58px); line-height: 1.04;
+  }
+  .hero-side{ padding-left: 8px; }
+  .hero-side p{ color: var(--slate); font-size: 17px; max-width: 40ch; }
+  .hero-actions{ display:flex; gap:16px; margin-top:28px; flex-wrap:wrap; }
+  .btn-primary{
+    background: var(--ink); color: var(--paper); padding: 13px 24px;
+    text-decoration:none; font-weight:600; font-size:14px; border-radius:2px;
+    display:inline-block;
+  }
+  .btn-primary:hover{ background: var(--brass); }
+  .btn-ghost{
+    padding: 13px 24px; text-decoration:none; font-weight:600; font-size:14px;
+    border-bottom: 1px solid var(--ink);
+  }
+  @media (max-width: 780px){
+    .hero-grid{ grid-template-columns: 1fr; }
+    .hero-divider{ display:none; }
+    .hero-side{ padding-left:0; }
+  }
+
+  /* Strip */
+  .strip{
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    background: var(--paper-dim);
+  }
+  .strip .wrap{
+    display:flex; padding: 22px 32px; gap: 40px; flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .strip-item{ font-size: 14px; color: var(--slate); }
+  .strip-item b{ color: var(--ink); }
+
+  /* Section heading pattern */
+  .sec-head{ display:flex; justify-content: space-between; align-items:flex-end; gap: 24px; margin-bottom: 48px; flex-wrap: wrap; }
+  .sec-head h2{ font-size: clamp(28px, 3.4vw, 40px); }
+  .sec-head .mono{ color: var(--slate); max-width: 34ch; text-align:right; }
+  @media (max-width: 640px){ .sec-head .mono{ text-align:left; } }
+
+  /* Ledger (signature element) */
+  .ledger{ border-top: 1px solid var(--ink); }
+  .ledger-track-label{
+    display:flex; align-items:center; gap:14px; margin: 44px 0 8px;
+  }
+  .ledger-track-label:first-child{ margin-top: 0; }
+  .ledger-track-label .mono{ color: var(--teal); }
+  .ledger-track-label.it .mono{ color: var(--brass); }
+  .ledger-rule{ flex:1; height:1px; background: var(--line); }
+
+  .ledger-row{
+    display:grid; grid-template-columns: 90px 1fr 1.4fr; gap: 24px;
+    padding: 22px 0; border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .ledger-row:hover{ background: rgba(20,33,61,0.02); }
+  .ledger-code{ font-family:'IBM Plex Mono', monospace; font-size:13px; color: var(--slate); }
+  .ledger-title{ font-family:'Fraunces', serif; font-weight:600; font-size:20px; }
+  .ledger-desc{ color: var(--slate); font-size:15px; }
+  @media (max-width: 780px){
+    .ledger-row{ grid-template-columns: 1fr; gap:6px; padding: 20px 0; }
+    .ledger-code{ order:1; }
+    .ledger-title{ order:2; }
+    .ledger-desc{ order:3; }
+  }
+
+  /* Approach */
+  .approach{ background: var(--ink); color: var(--paper); }
+  .approach .sec-head h2{ color: var(--paper); }
+  .approach .sec-head .mono{ color: rgba(250,247,239,0.6); }
+  .steps{
+    display:grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: rgba(250,247,239,0.16); border: 1px solid rgba(250,247,239,0.16);
+  }
+  .step{ background: var(--ink); padding: 32px 28px; }
+  .step .mono{ color: var(--brass); display:block; margin-bottom:18px; }
+  .step h3{ font-size:19px; margin-bottom:10px; color: var(--paper); }
+  .step p{ color: rgba(250,247,239,0.68); font-size:14px; margin:0; }
+  @media (max-width: 860px){ .steps{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px){ .steps{ grid-template-columns: 1fr; } }
+
+  /* Proof strip */
+  .proof{ padding: 72px 0; }
+  .proof-quote{
+    font-family:'Fraunces', serif; font-size: clamp(22px, 2.6vw, 30px);
+    line-height: 1.35; max-width: 780px;
+  }
+  .proof-attr{ margin-top:22px; color: var(--slate); }
+
+  /* Contact / Request form */
+  .contact{ background: var(--paper-dim); border-top:1px solid var(--line); }
+  .contact-grid{
+    display:grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px;
+  }
+  .contact-info h2{ font-size: clamp(28px, 3.4vw, 38px); margin-bottom:18px; }
+  .contact-info p{ color: var(--slate); max-width: 40ch; }
+  .contact-detail{ margin-top: 36px; }
+  .contact-detail div{ margin-bottom: 14px; font-size:15px; }
+  .contact-detail .mono{ color: var(--slate); display:block; margin-bottom:4px; }
+  .contact-detail a{ text-decoration:none; border-bottom:1px solid var(--line); }
+
+  form{ background: var(--paper); border:1px solid var(--line); padding: 40px; }
+  .field{ margin-bottom: 22px; }
+  .field label{ display:block; font-size:13px; font-weight:600; margin-bottom:8px; }
+  .field input, .field select, .field textarea{
+    width:100%; padding: 12px 14px; border:1px solid var(--line);
+    background: var(--paper); font-family:'Inter', sans-serif; font-size:14px;
+    border-radius: 2px; color: var(--ink);
+  }
+  .field textarea{ min-height: 110px; resize: vertical; }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline: 2px solid var(--brass); outline-offset: 1px;
+  }
+  .field-row{ display:grid; grid-template-columns: 1fr 1fr; gap:18px; }
+  .submit-btn{
+    width:100%; background: var(--ink); color: var(--paper); border:none;
+    padding: 15px 24px; font-weight:600; font-size:14px; cursor:pointer;
+    border-radius:2px; font-family:'Inter', sans-serif;
+  }
+  .submit-btn:hover{ background: var(--brass); }
+  .form-note{ font-size:12px; color: var(--slate); margin-top:14px; }
+  @media (max-width: 860px){
+    .contact-grid{ grid-template-columns: 1fr; gap: 40px; }
+    .field-row{ grid-template-columns: 1fr; }
+    form{ padding: 28px; }
+  }
+
+  footer{ padding: 32px 0; }
+  .foot-row{
+    display:flex; justify-content:space-between; align-items:center;
+    flex-wrap: wrap; gap:12px; font-size:13px; color: var(--slate);
+  }
+  .foot-row a{ text-decoration:none; border-bottom:1px solid var(--line); }
+
+  [data-reveal]{ opacity:0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+  [data-reveal].is-visible{ opacity:1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce){
+    [data-reveal]{ opacity:1; transform:none; transition:none; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="logo">Onusminds<span class="dot">.</span></div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#it">IT Consulting</a></li>
+      <li><a href="#marketing">Digital Marketing</a></li>
+      <li><a href="#approach">Approach</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">Request work</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow mono">IT Consulting — Digital Marketing</div>
+        <h1>Systems that hold.<br>Signals that carry.</h1>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-side">
+        <p>Onusminds pairs the two functions that quietly decide whether a business grows: the infrastructure running underneath it, and the story reaching the people it's for. We build and manage both, so neither one waits on the other.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#contact">Request work</a>
+          <a class="btn-ghost" href="#services">See services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap">
+      <div class="strip-item"><b>Two disciplines,</b> one engagement — no handoff between your IT vendor and your marketing team.</div>
+      <div class="strip-item"><b>Fixed-scope or ongoing</b> — project work and managed retainers, structured around what you actually need.</div>
+    </div>
+  </div>
+
+  <!-- SERVICES / LEDGER -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>What we take on</h2>
+        <div class="mono">Every engagement is scoped and numbered like a statement of work — because that's what it becomes.</div>
+      </div>
+
+      <div class="ledger">
+        <div class="ledger-track-label it">
+          <span class="mono">IT Consulting</span>
+          <div class="ledger-rule"></div>
+        </div>
+        <div id="it">
+          <div class="ledger-row">
+            <div class="ledger-code">IT-01</div>
+            <div class="ledger-title">Infrastructure &amp; cloud</div>
+            <div class="ledger-desc">Architecture reviews, cloud migration, and cost cleanup for teams running on AWS, Azure, or GCP.</div>
+          </div>
+          <div class="ledger-row">
+            <div class="ledger-code">IT-02</div>
+            <div class="ledger-title">Managed IT support</div>
+            <div class="ledger-desc">Day-to-day helpdesk, endpoint monitoring, and patching so nothing depends on one in-house person.</div>
+          </div>
+          <div class="ledger-row">
+            <div class="ledger-code">IT-03</div>
+            <div class="ledger-title">Cybersecurity &amp; compliance</div>
+            <div class="ledger-desc">Risk assessments, access hardening, and audit prep aligned to the standards your industry actually checks.</div>
+          </div>
+          <div class="ledger-row">
+            <div class="ledger-code">IT-04</div>
+            <div class="ledger-title">Custom software &amp; integrations</div>
+            <div class="ledger-desc">Internal tools and API integrations that connect the systems your team already uses.</div>
+          </div>
+        </div>
+
+        <div class="ledger-track-label">
+          <span class="mono">Digital Marketing</span>
+          <div class="ledger-rule"></div>
+        </div>
+        <div id="marketing">
+          <div class="ledger-row">
+            <div class="ledger-code">DM-01</div>
+            <div class="ledger-title">SEO &amp; content strategy</div>
+            <div class="ledger-desc">Technical SEO fixes, keyword mapping, and an editorial calendar built around what your buyers search.</div>
+          </div>
+          <div class="ledger-row">
+            <div class="ledger-code">DM-02</div>
+            <div class="ledger-title">Paid media &amp; performance</div>
+            <div class="ledger-desc">Search and social campaigns managed to a cost-per-lead target, not a vanity impression count.</div>
+          </div>
+          <div class="ledger-row">
+            <div class="ledger-code">DM-03</div>
+            <div class="ledger-title">Brand &amp; creative</div>
+            <div class="ledger-desc">Identity systems, website design, and campaign assets that stay consistent across every channel.</div>
+          </div>
+          <div class="ledger-row">
+            <div class="ledger-code">DM-04</div>
+            <div class="ledger-title">Analytics &amp; reporting</div>
+            <div class="ledger-desc">Dashboards and monthly reporting that tie spend to pipeline, not just clicks.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section id="approach" class="approach">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>How an engagement runs</h2>
+        <div class="mono">The same four stages, whether the work is a six-week project or a standing retainer.</div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="mono">01 — Discovery</span>
+          <h3>Understand what's actually running</h3>
+          <p>We audit current systems, campaigns, and spend before recommending anything.</p>
+        </div>
+        <div class="step">
+          <span class="mono">02 — Plan</span>
+          <h3>Scope the work and the numbers</h3>
+          <p>A written plan with deliverables, timeline, and cost — reviewed before we start.</p>
+        </div>
+        <div class="step">
+          <span class="mono">03 — Execute</span>
+          <h3>Build, migrate, or launch</h3>
+          <p>Work is delivered against the plan, with a single point of contact throughout.</p>
+        </div>
+        <div class="step">
+          <span class="mono">04 — Review</span>
+          <h3>Report and adjust</h3>
+          <p>Monthly reporting against the original targets, with scope revisited as things change.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section class="proof">
+    <div class="wrap">
+      <p class="proof-quote">"Ask what a business is bad at admitting it's bad at — usually it's either the servers or the marketing spend. We were built to take on both."</p>
+      <div class="proof-attr mono">Onusminds — on why the two practices sit under one roof</div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-info">
+        <h2>Request work</h2>
+        <p>Tell us what you're dealing with — a project with a start and an end, or something ongoing. We'll reply with next steps, not a sales call.</p>
+        <div class="contact-detail">
+          <div>
+            <span class="mono">Email</span>
+            <a href="mailto:info@onusminds.com">info@onusminds.com</a>
+          </div>
+        </div>
+      </div>
+
+      <form action="https://formsubmit.co/info@onusminds.com" method="POST">
+        <input type="hidden" name="_subject" value="New request from onusminds.com">
+        <input type="hidden" name="_template" value="table">
+
+        <div class="field-row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="Name" type="text" required>
+          </div>
+          <div class="field">
+            <label for="company">Company</label>
+            <input id="company" name="Company" type="text">
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="Email" type="email" required>
+          </div>
+          <div class="field">
+            <label for="service">Interested in</label>
+            <select id="service" name="Service interest">
+              <option>IT Consulting</option>
+              <option>Digital Marketing</option>
+              <option>Both</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="message">What are you dealing with?</label>
+          <textarea id="message" name="Message" required placeholder="A short description of the project or problem."></textarea>
+        </div>
+
+        <button class="submit-btn" type="submit">Send request</button>
+        <p class="form-note">Sent directly to info@onusminds.com. First submission may ask you to confirm the inbox — that's FormSubmit's one-time verification, not spam.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <div>© <span id="year"></span> Onusminds. All rights reserved.</div>
+    <div><a href="mailto:info@onusminds.com">info@onusminds.com</a></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.ledger-row, .step, .proof-quote');
+  revealEls.forEach(el => el.setAttribute('data-reveal', ''));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
