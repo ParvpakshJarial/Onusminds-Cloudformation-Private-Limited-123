@@ -400,9 +400,7 @@
         </div>
       </div>
 
-      <form id="request-form" action="https://formsubmit.co/info@onusminds.com" method="POST">
-        <input type="hidden" name="_subject" value="New service request from onusminds.com">
-        <input type="hidden" name="_template" value="table">
+      <form id="request-form">
 
         <div class="form-title mono">Request a Service</div>
 
@@ -460,7 +458,7 @@
         </div>
 
         <button class="submit-btn" type="submit">Submit request</button>
-        <p class="form-note">Your request is saved securely in our request system and emailed to info@onusminds.com.</p>
+        <p class="form-note">Your request is saved securely in our request system.</p>
       </form>
     </div>
   </section>
@@ -477,13 +475,13 @@
 <script>
   // Supabase connection
   // Replace these two placeholders with your Supabase Project URL and Publishable key.
-  const SUPABASE_URL = "https://bruuvzxsmvrtrsdqmapa.supabase.co/rest/v1/";
-  const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_Gn0yBtOs041hEDTXY_Dzfg_OfkHxUbH";
+  const SUPABASE_URL = "YOUR_SUPABASE_PROJECT_URL";
+  const SUPABASE_PUBLISHABLE_KEY = "YOUR_SUPABASE_PUBLISHABLE_KEY";
   const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Customer request -> Supabase + existing FormSubmit email
+  // Customer request -> Supabase
   const requestForm = document.getElementById('request-form');
   if (requestForm) {
     requestForm.addEventListener('submit', async (event) => {
@@ -496,16 +494,16 @@
 
       const getValue = (id) => document.getElementById(id)?.value?.trim() || '';
 
-      // These column names match the columns you created in Supabase.
+      // These names must exactly match your Supabase columns.
       const request = {
-        Name: getValue('name'),
-        Company: getValue('company'),
-        Email: getValue('email'),
-        Phone: getValue('phone'),
-        Service: getValue('service'),
-        Budget: getValue('budget'),
-        Requirement: getValue('message'),
-        Status: 'New'
+        name: getValue('name'),
+        company: getValue('company'),
+        email: getValue('email'),
+        phone: getValue('phone'),
+        service: getValue('service'),
+        budget: getValue('budget'),
+        requirement: getValue('message'),
+        status: 'New'
       };
 
       try {
@@ -515,9 +513,11 @@
 
         if (error) throw error;
 
-        // Keep the existing FormSubmit email notification.
-        // The native submit sends the same form to info@onusminds.com.
-        requestForm.submit();
+        submitButton.textContent = 'Request sent ✓';
+        alert('Thank you! Your request has been submitted successfully.');
+        requestForm.reset();
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
       } catch (error) {
         console.error('Supabase request error:', error);
         alert('Sorry, your request could not be saved. Please try again or email info@onusminds.com.');
