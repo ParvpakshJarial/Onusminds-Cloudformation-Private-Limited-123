@@ -65,7 +65,7 @@
   }
   .logo{
     font-family:'Fraunces', serif; font-weight:700; font-size:20px;
-    display:flex; align-items:baseline; gap:8px; text-decoration: none;
+    display:flex; align-items:baseline; gap:8px; text-decoration:none;
   }
   .logo .dot{ color: var(--brass); }
   .nav-links{ display:flex; gap:32px; list-style:none; margin:0; padding:0; }
@@ -83,10 +83,8 @@
     font-size:13px; font-weight:600; text-decoration:none; white-space:nowrap;
   }
   .nav-cta:hover{ background: var(--ink); color: var(--paper); }
-  .menu-toggle{ display:none; background:none; border:none; cursor:pointer; }
   @media (max-width: 860px){
     .nav-links{ display:none; }
-    .menu-toggle{ display:block; }
   }
 
   /* Hero */
@@ -142,20 +140,14 @@
 
   /* Ledger (signature element) */
   .ledger{ border-top: 1px solid var(--ink); }
-  
-  /* CRUCIAL FIX: Scroll Offset to prevent sticky nav from blocking IT-01 / DM-01 */
-  .scroll-target{
-    scroll-margin-top: 110px;
-  }
-
   .ledger-track-label{
-    display:flex; align-items:center; gap:14px; margin: 44px 0 8px;
+    display:flex; align-items:center; justify-content: space-between; margin: 44px 0 8px;
   }
   .ledger-track-label:first-child{ margin-top: 0; }
   .ledger-track-label .mono{ color: var(--teal); }
   .ledger-track-label.it .mono{ color: var(--brass); }
-  .ledger-rule{ flex:1; height:1px; background: var(--line); }
-
+  .ledger-link{ font-size: 13px; font-weight:600; text-decoration: none; border-bottom: 1px solid var(--ink); }
+  
   .ledger-row{
     display:grid; grid-template-columns: 90px 1fr 1.4fr; gap: 24px;
     padding: 22px 0; border-bottom: 1px solid var(--line);
@@ -167,25 +159,7 @@
   .ledger-desc{ color: var(--slate); font-size:15px; }
   @media (max-width: 780px){
     .ledger-row{ grid-template-columns: 1fr; gap:6px; padding: 20px 0; }
-    .ledger-code{ order:1; }
-    .ledger-title{ order:2; }
-    .ledger-desc{ order:3; }
   }
-
-  /* Approach */
-  .approach{ background: var(--ink); color: var(--paper); scroll-margin-top: 60px; }
-  .approach .sec-head h2{ color: var(--paper); }
-  .approach .sec-head .mono{ color: rgba(250,247,239,0.6); }
-  .steps{
-    display:grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
-    background: rgba(250,247,239,0.16); border: 1px solid rgba(250,247,239,0.16);
-  }
-  .step{ background: var(--ink); padding: 32px 28px; }
-  .step .mono{ color: var(--brass); display:block; margin-bottom:18px; }
-  .step h3{ font-size:19px; margin-bottom:10px; color: var(--paper); }
-  .step p{ color: rgba(250,247,239,0.68); font-size:14px; margin:0; }
-  @media (max-width: 860px){ .steps{ grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 560px){ .steps{ grid-template-columns: 1fr; } }
 
   /* Proof strip */
   .proof{ padding: 72px 0; }
@@ -196,7 +170,7 @@
   .proof-attr{ margin-top:22px; color: var(--slate); }
 
   /* Contact / Request form */
-  .contact{ background: var(--paper-dim); border-top:1px solid var(--line); scroll-margin-top: 60px; }
+  .contact{ background: var(--paper-dim); border-top:1px solid var(--line); }
   .contact-grid{
     display:grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px;
   }
@@ -243,10 +217,6 @@
 
   [data-reveal]{ opacity:0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
   [data-reveal].is-visible{ opacity:1; transform: translateY(0); }
-  @media (prefers-reduced-motion: reduce){
-    [data-reveal]{ opacity:1; transform:none; transition:none; }
-    html{ scroll-behavior:auto; }
-  }
 </style>
 </head>
 <body>
@@ -256,16 +226,14 @@
     <a href="index.html" class="logo">Onusminds Cloudformation Pvt. Ltd.<span class="dot">.</span></a>
     <ul class="nav-links">
       <li><a href="about.html">About Us</a></li>
-      <li><a href="#it-section">IT S&C</a></li>
-      <li><a href="#dm-section">Digital Marketing</a></li>
-      <li><a href="#approach">Approach</a></li>
+      <li><a href="it-services.html">IT S&C</a></li>
+      <li><a href="digital-marketing.html">Digital Marketing</a></li>
     </ul>
     <a class="nav-cta" href="#contact">Request work</a>
   </nav>
 </header>
 
 <main>
-  <!-- HERO -->
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
@@ -277,7 +245,7 @@
         <p>Onusminds Cloudformation Pvt. Ltd. pairs the two functions that quietly decide whether a business grows: the infrastructure running underneath it, and the story reaching the people it's for. We build and manage both, so neither one waits on the other.</p>
         <div class="hero-actions">
           <a class="btn-primary" href="#contact">Request work</a>
-          <a class="btn-ghost" href="#it-section">See services</a>
+          <a class="btn-ghost" href="#overview">Overview</a>
         </div>
       </div>
     </div>
@@ -290,21 +258,20 @@
     </div>
   </div>
 
-  <!-- SERVICES / LEDGER -->
-  <section id="services">
+  <!-- OVERVIEW / LEDGER -->
+  <section id="overview">
     <div class="wrap">
       <div class="sec-head">
-        <h2>Services & Capabilities</h2>
-        <div class="mono">Every engagement is scoped and numbered like a statement of work — because that's what it becomes.</div>
+        <h2>Core Capabilities</h2>
+        <div class="mono">Full-service technical architecture and performance growth under one roof.</div>
       </div>
 
       <div class="ledger">
-        <!-- Pin-perfect target for IT S&C -->
-        <div id="it-section" class="scroll-target">
-          <div class="ledger-track-label it">
-            <span class="mono">IT Consulting</span>
-            <div class="ledger-rule"></div>
-          </div>
+        <div class="ledger-track-label it">
+          <span class="mono">IT Consulting</span>
+          <a class="ledger-link" href="it-services.html">View IT Page →</a>
+        </div>
+        <div>
           <div class="ledger-row">
             <div class="ledger-code">IT-01</div>
             <div class="ledger-title">Infrastructure &amp; cloud</div>
@@ -315,24 +282,13 @@
             <div class="ledger-title">Managed IT support</div>
             <div class="ledger-desc">Day-to-day helpdesk, endpoint monitoring, and patching so nothing depends on one in-house person.</div>
           </div>
-          <div class="ledger-row">
-            <div class="ledger-code">IT-03</div>
-            <div class="ledger-title">Cybersecurity &amp; compliance</div>
-            <div class="ledger-desc">Risk assessments, access hardening, and audit prep aligned to the standards your industry actually checks.</div>
-          </div>
-          <div class="ledger-row">
-            <div class="ledger-code">IT-04</div>
-            <div class="ledger-title">Custom software &amp; integrations</div>
-            <div class="ledger-desc">Internal tools and API integrations that connect the systems your team already uses.</div>
-          </div>
         </div>
 
-        <!-- Pin-perfect target for Digital Marketing -->
-        <div id="dm-section" class="scroll-target">
-          <div class="ledger-track-label">
-            <span class="mono">Digital Marketing</span>
-            <div class="ledger-rule"></div>
-          </div>
+        <div class="ledger-track-label">
+          <span class="mono">Digital Marketing</span>
+          <a class="ledger-link" href="digital-marketing.html">View Marketing Page →</a>
+        </div>
+        <div>
           <div class="ledger-row">
             <div class="ledger-code">DM-01</div>
             <div class="ledger-title">SEO &amp; content strategy</div>
@@ -343,54 +299,11 @@
             <div class="ledger-title">Paid media &amp; performance</div>
             <div class="ledger-desc">Search and social campaigns managed to a cost-per-lead target, not a vanity impression count.</div>
           </div>
-          <div class="ledger-row">
-            <div class="ledger-code">DM-03</div>
-            <div class="ledger-title">Brand &amp; creative</div>
-            <div class="ledger-desc">Identity systems, website design, and campaign assets that stay consistent across every channel.</div>
-          </div>
-          <div class="ledger-row">
-            <div class="ledger-code">DM-04</div>
-            <div class="ledger-title">Analytics &amp; reporting</div>
-            <div class="ledger-desc">Dashboards and monthly reporting that tie spend to pipeline, not just clicks.</div>
-          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- APPROACH -->
-  <section id="approach" class="approach">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>How an engagement runs</h2>
-        <div class="mono">The same four stages, whether the work is a six-week project or a standing retainer.</div>
-      </div>
-      <div class="steps">
-        <div class="step">
-          <span class="mono">01 — Discovery</span>
-          <h3>Understand what's actually running</h3>
-          <p>We audit current systems, campaigns, and spend before recommending anything.</p>
-        </div>
-        <div class="step">
-          <span class="mono">02 — Plan</span>
-          <h3>Scope the work and the numbers</h3>
-          <p>A written plan with deliverables, timeline, and cost — reviewed before we start.</p>
-        </div>
-        <div class="step">
-          <span class="mono">03 — Execute</span>
-          <h3>Build, migrate, or launch</h3>
-          <p>Work is delivered against the plan, with a single point of contact throughout.</p>
-        </div>
-        <div class="step">
-          <span class="mono">04 — Review</span>
-          <h3>Report and adjust</h3>
-          <p>Monthly reporting against the original targets, with scope revisited as things change.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROOF -->
   <section class="proof">
     <div class="wrap">
       <p class="proof-quote">"Ask what a business is bad at admitting it's bad at — usually it's either the servers or the marketing spend. We were built to take on both."</p>
@@ -440,8 +353,8 @@
           <div class="field">
             <label for="service">Service required</label>
             <select id="service" name="Service required" required>
-              <option value="Digital Marketing">Digital Marketing</option>
               <option value="IT Consulting">IT Consulting</option>
+              <option value="Digital Marketing">Digital Marketing</option>
               <option value="Website Development">Website Development</option>
               <option value="Branding">Branding</option>
               <option value="Other">Other</option>
@@ -485,10 +398,9 @@
 <script>
   let SUPABASE_URL = "https://bruuvzxsmvrtrsdqmapa.supabase.co";
   const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_Gn0yBtOs041hEDTXY_Dzfg_OfkHxUbH";
-
   SUPABASE_URL = SUPABASE_URL.replace(/\/rest\/v1\/?$/i, '').replace(/\/+$/, '');
-
   const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+
   document.getElementById('year').textContent = new Date().getFullYear();
 
   const requestForm = document.getElementById('request-form');
@@ -501,7 +413,6 @@
       submitButton.textContent = 'Sending...';
 
       const getValue = (id) => document.getElementById(id)?.value?.trim() || '';
-
       const request = {
         name: getValue('name'),
         company: getValue('company'),
@@ -515,12 +426,8 @@
       };
 
       try {
-        const { error } = await supabaseClient
-          .from('customer_requests')
-          .insert([request]);
-
+        const { error } = await supabaseClient.from('customer_requests').insert([request]);
         if (error) throw error;
-
         submitButton.textContent = 'Request sent ✓';
         alert('Thank you! Your request has been submitted successfully.');
         requestForm.reset();
@@ -528,15 +435,14 @@
         submitButton.textContent = originalText;
       } catch (error) {
         console.error('Supabase request error:', error);
-        const detail = error?.message ? `\n\nDetails: ${error.message}` : '';
-        alert('Sorry, your request could not be saved. Please try again or email info@onusminds.com.' + detail);
+        alert('Sorry, your request could not be saved. Please try again.');
         submitButton.disabled = false;
         submitButton.textContent = originalText;
       }
     });
   }
 
-  const revealEls = document.querySelectorAll('.ledger-row, .step, .proof-quote');
+  const revealEls = document.querySelectorAll('.ledger-row, .proof-quote');
   revealEls.forEach(el => el.setAttribute('data-reveal', ''));
   const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
