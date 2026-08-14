@@ -198,6 +198,7 @@
   .contact-detail a{ text-decoration:none; border-bottom:1px solid var(--line); }
 
   form{ background: var(--paper); border:1px solid var(--line); padding: 40px; }
+  .form-title{ color: var(--brass); margin-bottom: 24px; }
   .field{ margin-bottom: 22px; }
   .field label{ display:block; font-size:13px; font-weight:600; margin-bottom:8px; }
   .field input, .field select, .field textarea{
@@ -242,9 +243,9 @@
 
 <header>
   <nav class="nav">
-    <div class="logo">Onusminds Cloudformation Pvt Ltd<span class="dot">.</span></div>
+    <div class="logo">Onusminds<span class="dot">.</span></div>
     <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
+      <li><a href="#services">About Us</a></li>
       <li><a href="#it">IT Consulting</a></li>
       <li><a href="#marketing">Digital Marketing</a></li>
       <li><a href="#approach">Approach</a></li>
@@ -283,7 +284,7 @@
   <section id="services">
     <div class="wrap">
       <div class="sec-head">
-        <h2>What we take on</h2>
+        <h2>About Us</h2>
         <div class="mono">Every engagement is scoped and numbered like a statement of work — because that's what it becomes.</div>
       </div>
 
@@ -400,8 +401,10 @@
       </div>
 
       <form action="https://formsubmit.co/info@onusminds.com" method="POST">
-        <input type="hidden" name="_subject" value="New request from onusminds.com">
+        <input type="hidden" name="_subject" value="New service request from onusminds.com">
         <input type="hidden" name="_template" value="table">
+
+        <div class="form-title mono">Request a Service</div>
 
         <div class="field-row">
           <div class="field">
@@ -409,8 +412,8 @@
             <input id="name" name="Name" type="text" required>
           </div>
           <div class="field">
-            <label for="company">Company</label>
-            <input id="company" name="Company" type="text">
+            <label for="company">Company name</label>
+            <input id="company" name="Company name" type="text">
           </div>
         </div>
 
@@ -420,22 +423,43 @@
             <input id="email" name="Email" type="email" required>
           </div>
           <div class="field">
-            <label for="service">Interested in</label>
-            <select id="service" name="Service interest">
-              <option>IT Consulting</option>
-              <option>Digital Marketing</option>
-              <option>Both</option>
-              <option>Not sure yet</option>
+            <label for="phone">Phone number</label>
+            <input id="phone" name="Phone number" type="tel">
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="service">Service required</label>
+            <select id="service" name="Service required" required>
+              <option value="Digital Marketing">Digital Marketing</option>
+              <option value="IT Consulting">IT Consulting</option>
+              <option value="Website Development">Website Development</option>
+              <option value="Branding">Branding</option>
+              <option value="Other">Other</option>
             </select>
+          </div>
+          <div class="field">
+            <label for="budget">Budget</label>
+            <input id="budget" name="Budget" type="text" placeholder="e.g. $2,000–$5,000">
           </div>
         </div>
 
         <div class="field">
-          <label for="message">What are you dealing with?</label>
-          <textarea id="message" name="Message" required placeholder="A short description of the project or problem."></textarea>
+          <label for="message">Tell us about your requirement</label>
+          <textarea id="message" name="Project description" required placeholder="A short description of the project or problem."></textarea>
         </div>
 
-        <button class="submit-btn" type="submit">Send request</button>
+        <div class="field">
+          <label for="contact-method">Preferred contact method</label>
+          <select id="contact-method" name="Preferred contact method">
+            <option value="Email">Email</option>
+            <option value="Phone">Phone</option>
+            <option value="Either">Either</option>
+          </select>
+        </div>
+
+        <button class="submit-btn" type="submit">Submit request</button>
         <p class="form-note">Sent directly to info@onusminds.com. First submission may ask you to confirm the inbox — that's FormSubmit's one-time verification, not spam.</p>
       </form>
     </div>
@@ -444,7 +468,7 @@
 
 <footer>
   <div class="wrap foot-row">
-    <div>© <span id="year"></span> Onusminds. Website designed by 2 Great Ps - Piyush Jarial & Parvpaksh Jarial.</div>
+    <div>© <span id="year"></span> Onusminds. All rights reserved.</div>
     <div><a href="mailto:info@onusminds.com">info@onusminds.com</a></div>
   </div>
 </footer>
