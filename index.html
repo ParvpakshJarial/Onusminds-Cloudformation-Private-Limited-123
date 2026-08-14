@@ -54,7 +54,7 @@
   /* Header */
   header{
     position: sticky; top:0; z-index: 50;
-    background: rgba(250,247,239,0.88);
+    background: rgba(250,247,239,0.92);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--line);
   }
@@ -142,9 +142,14 @@
 
   /* Ledger (signature element) */
   .ledger{ border-top: 1px solid var(--ink); }
+  
+  /* CRUCIAL FIX: Scroll Offset to prevent sticky nav from blocking IT-01 / DM-01 */
+  .scroll-target{
+    scroll-margin-top: 110px;
+  }
+
   .ledger-track-label{
     display:flex; align-items:center; gap:14px; margin: 44px 0 8px;
-    scroll-margin-top: 100px;
   }
   .ledger-track-label:first-child{ margin-top: 0; }
   .ledger-track-label .mono{ color: var(--teal); }
@@ -168,7 +173,7 @@
   }
 
   /* Approach */
-  .approach{ background: var(--ink); color: var(--paper); }
+  .approach{ background: var(--ink); color: var(--paper); scroll-margin-top: 60px; }
   .approach .sec-head h2{ color: var(--paper); }
   .approach .sec-head .mono{ color: rgba(250,247,239,0.6); }
   .steps{
@@ -191,7 +196,7 @@
   .proof-attr{ margin-top:22px; color: var(--slate); }
 
   /* Contact / Request form */
-  .contact{ background: var(--paper-dim); border-top:1px solid var(--line); }
+  .contact{ background: var(--paper-dim); border-top:1px solid var(--line); scroll-margin-top: 60px; }
   .contact-grid{
     display:grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px;
   }
@@ -272,7 +277,7 @@
         <p>Onusminds Cloudformation Pvt. Ltd. pairs the two functions that quietly decide whether a business grows: the infrastructure running underneath it, and the story reaching the people it's for. We build and manage both, so neither one waits on the other.</p>
         <div class="hero-actions">
           <a class="btn-primary" href="#contact">Request work</a>
-          <a class="btn-ghost" href="#services">See services</a>
+          <a class="btn-ghost" href="#it-section">See services</a>
         </div>
       </div>
     </div>
@@ -289,16 +294,17 @@
   <section id="services">
     <div class="wrap">
       <div class="sec-head">
-        <h2>Our Services</h2>
+        <h2>Services & Capabilities</h2>
         <div class="mono">Every engagement is scoped and numbered like a statement of work — because that's what it becomes.</div>
       </div>
 
       <div class="ledger">
-        <div id="it-section" class="ledger-track-label it">
-          <span class="mono">IT Consulting</span>
-          <div class="ledger-rule"></div>
-        </div>
-        <div id="it">
+        <!-- Pin-perfect target for IT S&C -->
+        <div id="it-section" class="scroll-target">
+          <div class="ledger-track-label it">
+            <span class="mono">IT Consulting</span>
+            <div class="ledger-rule"></div>
+          </div>
           <div class="ledger-row">
             <div class="ledger-code">IT-01</div>
             <div class="ledger-title">Infrastructure &amp; cloud</div>
@@ -321,11 +327,12 @@
           </div>
         </div>
 
-        <div id="dm-section" class="ledger-track-label">
-          <span class="mono">Digital Marketing</span>
-          <div class="ledger-rule"></div>
-        </div>
-        <div id="marketing">
+        <!-- Pin-perfect target for Digital Marketing -->
+        <div id="dm-section" class="scroll-target">
+          <div class="ledger-track-label">
+            <span class="mono">Digital Marketing</span>
+            <div class="ledger-rule"></div>
+          </div>
           <div class="ledger-row">
             <div class="ledger-code">DM-01</div>
             <div class="ledger-title">SEO &amp; content strategy</div>
@@ -480,10 +487,6 @@
   const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_Gn0yBtOs041hEDTXY_Dzfg_OfkHxUbH";
 
   SUPABASE_URL = SUPABASE_URL.replace(/\/rest\/v1\/?$/i, '').replace(/\/+$/, '');
-
-  if (SUPABASE_URL.includes('YOUR_SUPABASE_PROJECT_URL') || SUPABASE_PUBLISHABLE_KEY.includes('YOUR_SUPABASE_PUBLISHABLE_KEY')) {
-    console.warn('Supabase is not configured yet.');
-  }
 
   const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
   document.getElementById('year').textContent = new Date().getFullYear();
