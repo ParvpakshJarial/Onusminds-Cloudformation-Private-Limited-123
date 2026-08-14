@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Marketing — Onusminds Cloudformation Pvt. Ltd.</title>
+<meta name="description" content="Digital Marketing by Onusminds: Search performance, paid media, brand systems, and pipeline analytics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #14213D;
+    --paper: #FAF7EF;
+    --paper-dim: #F1ECDE;
+    --brass: #B98B1E;
+    --slate: #5B6472;
+    --teal: #2E6E62;
+    --line: rgba(20,33,61,0.14);
+    --max: 1120px;
+  }
+
+  *{ box-sizing: border-box; }
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .mono{
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+  a{ color: inherit; }
+  .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 32px; }
+  section{ padding: 88px 0; }
+  @media (max-width: 640px){
+    section{ padding: 60px 0; }
+    .wrap{ padding: 0 20px; }
+  }
+
+  /* Header */
+  header{
+    position: sticky; top:0; z-index: 50;
+    background: rgba(250,247,239,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content: space-between;
+    padding: 18px 32px;
+    max-width: var(--max); margin: 0 auto;
+  }
+  .logo{
+    font-family:'Fraunces', serif; font-weight:700; font-size:20px;
+    display:flex; align-items:baseline; gap:8px; text-decoration:none;
+  }
+  .logo .dot{ color: var(--brass); }
+  .nav-links{ display:flex; gap:32px; list-style:none; margin:0; padding:0; }
+  .nav-links a{
+    text-decoration:none; font-size:14px; font-weight:500; color: var(--ink);
+    position: relative;
+  }
+  .nav-links a:after{
+    content:''; position:absolute; left:0; bottom:-4px; width:0; height:1px;
+    background: var(--brass); transition: width .25s ease;
+  }
+  .nav-links a:hover:after, .nav-links a.active:after{ width:100%; }
+  .nav-cta{
+    border:1px solid var(--ink); padding:9px 18px; border-radius:2px;
+    font-size:13px; font-weight:600; text-decoration:none; white-space:nowrap;
+  }
+  .nav-cta:hover{ background: var(--ink); color: var(--paper); }
+  @media (max-width: 860px){
+    .nav-links{ display:none; }
+  }
+
+  /* Hero */
+  .page-hero{ padding: 80px 0 48px; border-bottom: 1px solid var(--line); }
+  .page-hero h1{ font-size: clamp(36px, 4.5vw, 54px); margin-bottom: 16px; }
+  .page-hero p{ color: var(--slate); font-size: 18px; max-width: 65ch; margin: 0; }
+
+  /* Ledger Structure */
+  .ledger{ border-top: 1px solid var(--ink); }
+  .ledger-track-label{
+    display:flex; align-items:center; gap:14px; margin: 40px 0 8px;
+  }
+  .ledger-track-label.dm .mono{ color: var(--teal); }
+  .ledger-rule{ flex:1; height:1px; background: var(--line); }
+
+  .ledger-row{
+    display:grid; grid-template-columns: 100px 1.2fr 1.6fr; gap: 24px;
+    padding: 26px 0; border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .ledger-row:hover{ background: rgba(20,33,61,0.02); }
+  .ledger-code{ font-family:'IBM Plex Mono', monospace; font-size:14px; color: var(--teal); font-weight:600; }
+  .ledger-title{ font-family:'Fraunces', serif; font-weight:600; font-size:22px; }
+  .ledger-desc{ color: var(--slate); font-size:15px; }
+  @media (max-width: 780px){
+    .ledger-row{ grid-template-columns: 1fr; gap:8px; padding: 20px 0; }
+  }
+
+  /* CTA Strip */
+  .page-cta{ background: var(--paper-dim); border-top: 1px solid var(--line); text-align: center; padding: 72px 0; }
+  .page-cta h2{ font-size: clamp(26px, 3vw, 36px); margin-bottom: 16px; }
+  .page-cta p{ color: var(--slate); margin-bottom: 28px; }
+  .btn-primary{
+    background: var(--ink); color: var(--paper); padding: 14px 28px;
+    text-decoration:none; font-weight:600; font-size:14px; border-radius:2px;
+    display:inline-block;
+  }
+  .btn-primary:hover{ background: var(--brass); }
+
+  footer{ padding: 32px 0; border-top: 1px solid var(--line); }
+  .foot-row{
+    display:flex; justify-content:space-between; align-items:center;
+    flex-wrap: wrap; gap:12px; font-size:13px; color: var(--slate);
+  }
+  .foot-row a{ text-decoration:none; border-bottom:1px solid var(--line); }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo">Onusminds Cloudformation Pvt. Ltd.<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="it-services.html">IT S&C</a></li>
+      <li><a href="digital-marketing.html" class="active">Digital Marketing</a></li>
+    </ul>
+    <a class="nav-cta" href="index.html#contact">Request work</a>
+  </nav>
+</header>
+
+<main>
+  <div class="page-hero">
+    <div class="wrap">
+      <div class="mono" style="color: var(--teal); margin-bottom: 12px;">Practice Area</div>
+      <h1>Digital Marketing</h1>
+      <p>Performance marketing, search positioning, and brand assets designed to convert traffic into verifiable revenue pipeline.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="ledger">
+        <div class="ledger-track-label dm">
+          <span class="mono">Statement of Capabilities</span>
+          <div class="ledger-rule"></div>
+        </div>
+
+        <div class="ledger-row">
+          <div class="ledger-code">DM-01</div>
+          <div class="ledger-title">SEO &amp; content strategy</div>
+          <div class="ledger-desc">Technical SEO fixes, keyword mapping, and an editorial calendar built around what your buyers search. We focus on search intent that drives inbound qualified leads.</div>
+        </div>
+
+        <div class="ledger-row">
+          <div class="ledger-code">DM-02</div>
+          <div class="ledger-title">Paid media &amp; performance</div>
+          <div class="ledger-desc">Search and social campaigns managed to a cost-per-lead target, not a vanity impression count. Multi-channel testing across Google Ads, LinkedIn, and Meta.</div>
+        </div>
+
+        <div class="ledger-row">
+          <div class="ledger-code">DM-03</div>
+          <div class="ledger-title">Brand &amp; creative</div>
+          <div class="ledger-desc">Identity systems, website design, and campaign assets that stay consistent across every channel. Visual and copywriting positioning that communicates authority.</div>
+        </div>
+
+        <div class="ledger-row">
+          <div class="ledger-code">DM-04</div>
+          <div class="ledger-title">Analytics &amp; reporting</div>
+          <div class="ledger-desc">Dashboards and monthly reporting that tie spend to pipeline, not just clicks. Full-funnel attribution and UTM governance across your CRM.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-cta">
+    <div class="wrap">
+      <h2>Looking to scale your market presence?</h2>
+      <p>Let's map out a focused performance strategy for your brand.</p>
+      <a class="btn-primary" href="index.html#contact">Request Marketing Scope</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <div>© <span id="year"></span> Onusminds Cloudformation Pvt. Ltd. All rights reserved.</div>
+    <div><a href="mailto:info@onusminds.com">info@onusminds.com</a></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
