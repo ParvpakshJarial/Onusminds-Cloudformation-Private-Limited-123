@@ -474,9 +474,20 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
   // Supabase connection
-  // Replace these two placeholders with your Supabase Project URL and Publishable key.
-  const SUPABASE_URL = "YOUR_SUPABASE_PROJECT_URL";
-  const SUPABASE_PUBLISHABLE_KEY = "YOUR_SUPABASE_PUBLISHABLE_KEY";
+  // Replace these two placeholders with your Supabase Project URL and Publishable (anon) key.
+  // IMPORTANT: SUPABASE_URL must be ONLY the base project URL — e.g. "https://xxxxxxxx.supabase.co"
+  // Do NOT include "/rest/v1" or a trailing slash here — supabase-js adds that automatically.
+  // Adding it yourself causes a doubled path (".../rest/v1/rest/v1/...") and a 404 "Invalid path specified" error.
+  let SUPABASE_URL = "https://bruuvzxsmvrtrsdqmapa.supabase.co";
+  const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_Gn0yBtOs041hEDTXY_Dzfg_OfkHxUbH";
+
+  // Safety net: strip any accidentally-pasted "/rest/v1" suffix or trailing slash.
+  SUPABASE_URL = SUPABASE_URL.replace(/\/rest\/v1\/?$/i, '').replace(/\/+$/, '');
+
+  if (SUPABASE_URL.includes('YOUR_SUPABASE_PROJECT_URL') || SUPABASE_PUBLISHABLE_KEY.includes('YOUR_SUPABASE_PUBLISHABLE_KEY')) {
+    console.warn('Supabase is not configured yet: replace SUPABASE_URL and SUPABASE_PUBLISHABLE_KEY with your real project values.');
+  }
+
   const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 
   document.getElementById('year').textContent = new Date().getFullYear();
@@ -503,6 +514,7 @@
         service: getValue('service'),
         budget: getValue('budget'),
         requirement: getValue('message'),
+        preferred_contact: getValue('contact-method'),
         status: 'New'
       };
 
