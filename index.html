@@ -65,7 +65,7 @@
   }
   .logo{
     font-family:'Fraunces', serif; font-weight:700; font-size:20px;
-    display:flex; align-items:baseline; gap:8px;
+    display:flex; align-items:baseline; gap:8px; text-decoration: none;
   }
   .logo .dot{ color: var(--brass); }
   .nav-links{ display:flex; gap:32px; list-style:none; margin:0; padding:0; }
@@ -144,6 +144,7 @@
   .ledger{ border-top: 1px solid var(--ink); }
   .ledger-track-label{
     display:flex; align-items:center; gap:14px; margin: 44px 0 8px;
+    scroll-margin-top: 100px;
   }
   .ledger-track-label:first-child{ margin-top: 0; }
   .ledger-track-label .mono{ color: var(--teal); }
@@ -247,11 +248,11 @@
 
 <header>
   <nav class="nav">
-    <div class="logo">Onusminds Cloudformation Pvt. Ltd.<span class="dot">.</span></div>
+    <a href="index.html" class="logo">Onusminds Cloudformation Pvt. Ltd.<span class="dot">.</span></a>
     <ul class="nav-links">
-      <li><a href="#services">About Us</a></li>
-      <li><a href="#it">IT Consulting</a></li>
-      <li><a href="#marketing">Digital Marketing</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="#it-section">IT S&C</a></li>
+      <li><a href="#dm-section">Digital Marketing</a></li>
       <li><a href="#approach">Approach</a></li>
     </ul>
     <a class="nav-cta" href="#contact">Request work</a>
@@ -288,12 +289,12 @@
   <section id="services">
     <div class="wrap">
       <div class="sec-head">
-        <h2>About Us</h2>
+        <h2>Our Services</h2>
         <div class="mono">Every engagement is scoped and numbered like a statement of work — because that's what it becomes.</div>
       </div>
 
       <div class="ledger">
-        <div class="ledger-track-label it">
+        <div id="it-section" class="ledger-track-label it">
           <span class="mono">IT Consulting</span>
           <div class="ledger-rule"></div>
         </div>
@@ -320,7 +321,7 @@
           </div>
         </div>
 
-        <div class="ledger-track-label">
+        <div id="dm-section" class="ledger-track-label">
           <span class="mono">Digital Marketing</span>
           <div class="ledger-rule"></div>
         </div>
@@ -405,9 +406,7 @@
       </div>
 
       <form id="request-form">
-
         <div class="form-title mono">Request a Service</div>
-
         <div class="field-row">
           <div class="field">
             <label for="name">Name</label>
@@ -477,31 +476,22 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-  // Supabase connection
-  // Replace these two placeholders with your Supabase Project URL and Publishable (anon) key.
-  // IMPORTANT: SUPABASE_URL must be ONLY the base project URL — e.g. "https://xxxxxxxx.supabase.co"
-  // Do NOT include "/rest/v1" or a trailing slash here — supabase-js adds that automatically.
-  // Adding it yourself causes a doubled path (".../rest/v1/rest/v1/...") and a 404 "Invalid path specified" error.
   let SUPABASE_URL = "https://bruuvzxsmvrtrsdqmapa.supabase.co";
   const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_Gn0yBtOs041hEDTXY_Dzfg_OfkHxUbH";
 
-  // Safety net: strip any accidentally-pasted "/rest/v1" suffix or trailing slash.
   SUPABASE_URL = SUPABASE_URL.replace(/\/rest\/v1\/?$/i, '').replace(/\/+$/, '');
 
   if (SUPABASE_URL.includes('YOUR_SUPABASE_PROJECT_URL') || SUPABASE_PUBLISHABLE_KEY.includes('YOUR_SUPABASE_PUBLISHABLE_KEY')) {
-    console.warn('Supabase is not configured yet: replace SUPABASE_URL and SUPABASE_PUBLISHABLE_KEY with your real project values.');
+    console.warn('Supabase is not configured yet.');
   }
 
   const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
-
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Customer request -> Supabase
   const requestForm = document.getElementById('request-form');
   if (requestForm) {
     requestForm.addEventListener('submit', async (event) => {
       event.preventDefault();
-
       const submitButton = requestForm.querySelector('button[type="submit"]');
       const originalText = submitButton.textContent;
       submitButton.disabled = true;
@@ -509,7 +499,6 @@
 
       const getValue = (id) => document.getElementById(id)?.value?.trim() || '';
 
-      // These names must exactly match your Supabase columns.
       const request = {
         name: getValue('name'),
         company: getValue('company'),
@@ -544,7 +533,6 @@
     });
   }
 
-  // Scroll reveal
   const revealEls = document.querySelectorAll('.ledger-row, .step, .proof-quote');
   revealEls.forEach(el => el.setAttribute('data-reveal', ''));
   const io = new IntersectionObserver((entries) => {
@@ -557,6 +545,5 @@
   }, { threshold: 0.12 });
   revealEls.forEach(el => io.observe(el));
 </script>
-
 </body>
 </html>
