@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Onusminds — IT Consulting &amp; Digital Marketing</title>
-<meta name="description" content="Onusminds pairs IT consulting with digital marketing — the systems behind your business and the story in front of it, built to move at the same pace.">
+<title>Onusminds Cloudformation Pvt. Ltd. — IT Services &amp; Consulting, Digital Marketing</title>
+<meta name="description" content="Onusminds Cloudformation Pvt. Ltd. pairs IT consulting with digital marketing — the systems behind your business and the story in front of it, built to move at the same pace.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink: #14213D;
@@ -97,7 +97,11 @@
   .hero-divider{ background: var(--line); align-self: stretch; }
   .eyebrow{ color: var(--brass); margin-bottom: 18px; }
   .hero h1{
-    font-size: clamp(36px, 5vw, 58px); line-height: 1.04;
+    font-size: clamp(38px, 5.4vw, 62px); line-height: 1.05;
+    font-weight: 700; letter-spacing: -0.015em;
+  }
+  .hero h1 em{
+    font-style: italic; font-weight: 500; color: var(--brass);
   }
   .hero-side{ padding-left: 8px; }
   .hero-side p{ color: var(--slate); font-size: 17px; max-width: 40ch; }
@@ -243,7 +247,7 @@
 
 <header>
   <nav class="nav">
-    <div class="logo">Onusminds<span class="dot">.</span></div>
+    <div class="logo">Onusminds Cloudformation Pvt. Ltd.<span class="dot">.</span></div>
     <ul class="nav-links">
       <li><a href="#services">About Us</a></li>
       <li><a href="#it">IT Consulting</a></li>
@@ -259,12 +263,12 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <div class="eyebrow mono">IT Consulting & Digital Marketing</div>
-        <h1>Systems that hold.<br>Signals that carry.</h1>
+        <div class="eyebrow mono">IT Services & Consulting, Digital Marketing</div>
+        <h1>Cloud Infrastructure that holds.<br>Stories that <em>carry</em>.</h1>
       </div>
       <div class="hero-divider"></div>
       <div class="hero-side">
-        <p>Onusminds pairs the two functions that quietly decide whether a business grows: the infrastructure running underneath it, and the story reaching the people it's for. We build and manage both, so neither one waits on the other.</p>
+        <p>Onusminds Cloudformation Pvt. Ltd. pairs the two functions that quietly decide whether a business grows: the infrastructure running underneath it, and the story reaching the people it's for. We build and manage both, so neither one waits on the other.</p>
         <div class="hero-actions">
           <a class="btn-primary" href="#contact">Request work</a>
           <a class="btn-ghost" href="#services">See services</a>
@@ -382,7 +386,7 @@
   <section class="proof">
     <div class="wrap">
       <p class="proof-quote">"Ask what a business is bad at admitting it's bad at — usually it's either the servers or the marketing spend. We were built to take on both."</p>
-      <div class="proof-attr mono">Onusminds — on why the two practices sit under one roof</div>
+      <div class="proof-attr mono">Onusminds Cloudformation Pvt. Ltd. — on why the two practices sit under one roof</div>
     </div>
   </section>
 
@@ -466,7 +470,7 @@
 
 <footer>
   <div class="wrap foot-row">
-    <div>© <span id="year"></span> Onusminds. All rights reserved.</div>
+    <div>© <span id="year"></span> Onusminds Cloudformation Pvt. Ltd. All rights reserved.</div>
     <div><a href="mailto:info@onusminds.com">info@onusminds.com</a></div>
   </div>
 </footer>
@@ -532,7 +536,8 @@
         submitButton.textContent = originalText;
       } catch (error) {
         console.error('Supabase request error:', error);
-        alert('Sorry, your request could not be saved. Please try again or email info@onusminds.com.');
+        const detail = error?.message ? `\n\nDetails: ${error.message}` : '';
+        alert('Sorry, your request could not be saved. Please try again or email info@onusminds.com.' + detail);
         submitButton.disabled = false;
         submitButton.textContent = originalText;
       }
