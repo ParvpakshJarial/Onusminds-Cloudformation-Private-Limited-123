@@ -21,7 +21,6 @@
   }
 
   *{ box-sizing: border-box; }
-  html{ scroll-behavior: smooth; }
   body{
     margin:0;
     background: var(--paper);
@@ -65,7 +64,7 @@
   }
   .logo{
     font-family:'Fraunces', serif; font-weight:700; font-size:20px;
-    display:flex; align-items:baseline; gap:8px; text-decoration: none;
+    display:flex; align-items:baseline; gap:8px; text-decoration:none;
   }
   .logo .dot{ color: var(--brass); }
   .nav-links{ display:flex; gap:32px; list-style:none; margin:0; padding:0; }
@@ -77,8 +76,7 @@
     content:''; position:absolute; left:0; bottom:-4px; width:0; height:1px;
     background: var(--brass); transition: width .25s ease;
   }
-  .nav-links a:hover:after{ width:100%; }
-  .nav-links a.active:after{ width: 100%; }
+  .nav-links a:hover:after, .nav-links a.active:after{ width:100%; }
   .nav-cta{
     border:1px solid var(--ink); padding:9px 18px; border-radius:2px;
     font-size:13px; font-weight:600; text-decoration:none; white-space:nowrap;
@@ -99,7 +97,7 @@
     font-size: 20px; color: var(--slate); max-width: 760px; line-height: 1.5;
   }
 
-  /* Values Section */
+  /* Principles */
   .values{ background: var(--paper-dim); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .grid-3{
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
@@ -114,7 +112,7 @@
     .grid-3{ grid-template-columns: 1fr; gap: 20px; }
   }
 
-  /* Manifesto Section */
+  /* Origin */
   .story-block{
     display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
   }
@@ -124,7 +122,6 @@
     .story-block{ grid-template-columns: 1fr; gap: 30px; }
   }
 
-  /* CTA Bar */
   .about-cta{
     background: var(--ink); color: var(--paper); text-align: center; padding: 72px 0;
   }
@@ -152,25 +149,22 @@
     <a href="index.html" class="logo">Onusminds Cloudformation Pvt. Ltd.<span class="dot">.</span></a>
     <ul class="nav-links">
       <li><a href="about.html" class="active">About Us</a></li>
-      <li><a href="index.html#it-section">IT S&C</a></li>
-      <li><a href="index.html#dm-section">Digital Marketing</a></li>
-      <li><a href="index.html#approach">Approach</a></li>
+      <li><a href="it-services.html">IT S&C</a></li>
+      <li><a href="digital-marketing.html">Digital Marketing</a></li>
     </ul>
     <a class="nav-cta" href="index.html#contact">Request work</a>
   </nav>
 </header>
 
 <main>
-  <!-- ABOUT HERO -->
   <section class="hero">
     <div class="wrap">
-      <div class="mono" style="color: var(--brass); margin-bottom: 18px;">About The Firm</div>
+      <div class="mono" style="color: var(--brass); margin-bottom: 18px;">About The Company</div>
       <h1>Built for the modern stack,<br>engineered for <em>sustainable reach</em>.</h1>
       <p class="hero-lead">We founded Onusminds Cloudformation Pvt. Ltd. on a straightforward observation: technological capabilities and brand marketing routinely work in silos, creating friction where there should be velocity.</p>
     </div>
   </section>
 
-  <!-- MANIFESTO / STORY -->
   <section>
     <div class="wrap story-block">
       <div>
@@ -184,7 +178,6 @@
     </div>
   </section>
 
-  <!-- VALUES / PRINCIPLES -->
   <section class="values">
     <div class="wrap">
       <div style="margin-bottom: 40px;">
@@ -212,7 +205,6 @@
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="about-cta">
     <div class="wrap">
       <h2>Ready to build and grow?</h2>
