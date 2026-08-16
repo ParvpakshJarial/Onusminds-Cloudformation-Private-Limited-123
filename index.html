@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Onusminds Cloudformation Pvt. Ltd. — IT Services &amp; Consulting, Digital Marketing</title>
-<meta name="description" content="Onusminds Cloudformation Pvt. Ltd. pairs IT consulting with digital marketing — the systems behind your business and the story in front of it, built to move at the same pace.">
+<meta name="description" content="Onusminds Cloudformation Pvt. Ltd. pairs IT Services & Consulting with digital marketing — the systems behind your business and the story in front of it, built to move at the same pace.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -14,6 +14,7 @@
     --paper: #FAF7EF;
     --paper-dim: #F1ECDE;
     --brass: #B98B1E;
+    --sage: #4C7A62;
     --slate: #5B6472;
     --teal: #2E6E62;
     --line: rgba(20,33,61,0.14);
@@ -28,7 +29,8 @@
     color: var(--ink);
     font-family: 'Inter', sans-serif;
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.65;
+    letter-spacing: -0.005em;
     -webkit-font-smoothing: antialiased;
   }
   h1,h2,h3{
@@ -90,7 +92,7 @@
   /* Hero */
   .hero{ padding: 88px 0 80px; }
   .hero-grid{
-    display:grid; grid-template-columns: 1fr 1px 1fr; gap: 48px; align-items: end;
+    display:grid; grid-template-columns: 1fr 1px 1fr; gap: 48px; align-items: start;
   }
   .hero-divider{ background: var(--line); align-self: stretch; }
   .eyebrow{ color: var(--brass); margin-bottom: 18px; }
@@ -101,8 +103,11 @@
   .hero h1 em{
     font-style: italic; font-weight: 500; color: var(--brass);
   }
-  .hero-side{ padding-left: 8px; }
-  .hero-side p{ color: var(--slate); font-size: 17px; max-width: 40ch; }
+  .hero h1 .accent-sage{
+    font-style: italic; font-weight: 500; color: var(--sage);
+  }
+  .hero-side{ padding-left: 8px; padding-top: 38px; }
+  .hero-side p{ color: var(--slate); font-size: 19px; line-height: 1.65; font-weight: 400; max-width: 42ch; }
   .hero-actions{ display:flex; gap:16px; margin-top:28px; flex-wrap:wrap; }
   .btn-primary{
     background: var(--ink); color: var(--paper); padding: 13px 24px;
@@ -214,6 +219,11 @@
     flex-wrap: wrap; gap:12px; font-size:13px; color: var(--slate);
   }
   .foot-row a{ text-decoration:none; border-bottom:1px solid var(--line); }
+  .foot-links{ display:flex; gap:20px; flex-wrap:wrap; }
+  .foot-credit{
+    margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line);
+    font-size: 12px; color: var(--slate); text-align:center;
+  }
 
   [data-reveal]{ opacity:0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
   [data-reveal].is-visible{ opacity:1; transform: translateY(0); }
@@ -223,7 +233,7 @@
 
 <header>
   <nav class="nav">
-    <a href="index.html" class="logo">Onusminds Cloudformation Pvt. Ltd.<span class="dot">.</span></a>
+    <a href="index.html" class="logo">Onusminds Cloudformation Pvt. Ltd.</a>
     <ul class="nav-links">
       <li><a href="about.html">About Us</a></li>
       <li><a href="it-services.html">IT S&C</a></li>
@@ -238,7 +248,7 @@
     <div class="wrap hero-grid">
       <div>
         <div class="eyebrow mono">IT Services & Consulting, Digital Marketing</div>
-        <h1>Cloud Infrastructure that holds.<br>Stories that <em>carry</em>.</h1>
+        <h1>Cloud Infrastructure.<br><em>Scale</em> with ease, perform with speed.<br>Built to grow with the <span class="accent-sage">cloud</span>.</h1>
       </div>
       <div class="hero-divider"></div>
       <div class="hero-side">
@@ -268,7 +278,7 @@
 
       <div class="ledger">
         <div class="ledger-track-label it">
-          <span class="mono">IT Consulting</span>
+          <span class="mono">IT Services &amp; Consulting</span>
           <a class="ledger-link" href="it-services.html">View IT Page →</a>
         </div>
         <div>
@@ -322,6 +332,10 @@
             <span class="mono">Email</span>
             <a href="mailto:info@onusminds.com">info@onusminds.com</a>
           </div>
+          <div>
+            <span class="mono">Phone</span>
+            <a href="tel:+919718814444">+91 97188 14444</a>
+          </div>
         </div>
       </div>
 
@@ -353,7 +367,7 @@
           <div class="field">
             <label for="service">Service required</label>
             <select id="service" name="Service required" required>
-              <option value="IT Consulting">IT Consulting</option>
+              <option value="IT Services &amp; Consulting">IT Services &amp; Consulting</option>
               <option value="Digital Marketing">Digital Marketing</option>
               <option value="Website Development">Website Development</option>
               <option value="Branding">Branding</option>
@@ -390,8 +404,9 @@
 <footer>
   <div class="wrap foot-row">
     <div>© <span id="year"></span> Onusminds Cloudformation Pvt. Ltd. All rights reserved.</div>
-    <div><a href="mailto:info@onusminds.com">info@onusminds.com</a></div>
+    <div class="foot-links"><a href="mailto:info@onusminds.com">info@onusminds.com</a><a href="tel:+919718814444">+91 97188 14444</a></div>
   </div>
+  <div class="wrap foot-credit">Made With The Love of Parvpaksh Jarial and Piyush Jarial</div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
