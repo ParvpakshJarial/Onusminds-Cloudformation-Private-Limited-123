@@ -7,14 +7,13 @@
 <meta name="description" content="Onusminds Cloudformation Pvt. Ltd. pairs IT Services & Consulting with digital marketing — the systems behind your business and the story in front of it, built to move at the same pace.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink: #14213D;
     --paper: #FAF7EF;
     --paper-dim: #F1ECDE;
     --brass: #B98B1E;
-    --sage: #4C7A62;
     --slate: #5B6472;
     --teal: #2E6E62;
     --line: rgba(20,33,61,0.14);
@@ -27,7 +26,7 @@
     margin:0;
     background: var(--paper);
     color: var(--ink);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Fraunces', serif;
     font-size: 16px;
     line-height: 1.65;
     letter-spacing: -0.005em;
@@ -95,7 +94,11 @@
     display:grid; grid-template-columns: 1fr 1px 1fr; gap: 48px; align-items: start;
   }
   .hero-divider{ background: var(--line); align-self: stretch; }
-  .eyebrow{ color: var(--brass); margin-bottom: 18px; }
+  .eyebrow{
+    color: var(--ink); margin-bottom: 18px;
+    font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.02em;
+    text-transform: uppercase; font-size: 12px;
+  }
   .hero h1{
     font-size: clamp(38px, 5.4vw, 62px); line-height: 1.05;
     font-weight: 700; letter-spacing: -0.015em;
@@ -103,11 +106,11 @@
   .hero h1 em{
     font-style: italic; font-weight: 500; color: var(--brass);
   }
-  .hero h1 .accent-sage{
-    font-style: italic; font-weight: 500; color: var(--sage);
-  }
   .hero-side{ padding-left: 8px; padding-top: 38px; }
   .hero-side p{ color: var(--slate); font-size: 19px; line-height: 1.65; font-weight: 400; max-width: 42ch; }
+  .brand-name{
+    font-weight: 700; letter-spacing: -0.015em; color: var(--ink);
+  }
   .hero-actions{ display:flex; gap:16px; margin-top:28px; flex-wrap:wrap; }
   .btn-primary{
     background: var(--ink); color: var(--paper); padding: 13px 24px;
@@ -192,7 +195,7 @@
   .field label{ display:block; font-size:13px; font-weight:600; margin-bottom:8px; }
   .field input, .field select, .field textarea{
     width:100%; padding: 12px 14px; border:1px solid var(--line);
-    background: var(--paper); font-family:'Inter', sans-serif; font-size:14px;
+    background: var(--paper); font-family:'Fraunces', serif; font-size:14px;
     border-radius: 2px; color: var(--ink);
   }
   .field textarea{ min-height: 110px; resize: vertical; }
@@ -203,7 +206,7 @@
   .submit-btn{
     width:100%; background: var(--ink); color: var(--paper); border:none;
     padding: 15px 24px; font-weight:600; font-size:14px; cursor:pointer;
-    border-radius:2px; font-family:'Inter', sans-serif;
+    border-radius:2px; font-family:'Fraunces', serif;
   }
   .submit-btn:hover{ background: var(--brass); }
   .form-note{ font-size:12px; color: var(--slate); margin-top:14px; }
@@ -247,12 +250,12 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <div class="eyebrow mono">IT Services & Consulting, Digital Marketing</div>
-        <h1>Cloud Infrastructure.<br><em>Scale</em> with ease, perform with speed.<br>Built to grow with the <span class="accent-sage">cloud</span>.</h1>
+        <div class="eyebrow">IT Services & Consulting, Digital Marketing</div>
+        <h1>Cloud Infrastructure.<br><em>Scale</em> with ease, perform with speed.<br>Built to grow with the <em>cloud</em>.</h1>
       </div>
       <div class="hero-divider"></div>
       <div class="hero-side">
-        <p>Onusminds Cloudformation Pvt. Ltd. pairs the two functions that quietly decide whether a business grows: the infrastructure running underneath it, and the story reaching the people it's for. We build and manage both, so neither one waits on the other.</p>
+        <p><span class="brand-name">Onusminds Cloudformation Pvt. Ltd.</span> pairs the two functions that quietly decide whether a business grows: the infrastructure running underneath it, and the story reaching the people it's for. We build and manage both, so neither one waits on the other.</p>
         <div class="hero-actions">
           <a class="btn-primary" href="#contact">Request work</a>
           <a class="btn-ghost" href="#overview">Overview</a>
